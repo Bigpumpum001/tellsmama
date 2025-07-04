@@ -464,7 +464,7 @@ function Manage({ onProductUpdate }) {
                                                                     placeholder="เช่น bi-x-circle"
                                                                 />
                                                             ) : (
-                                                                category.icon && <i className={`bi ${category.icon}`}></i>
+                                                                category.icon && <i className={`${category.icon}`}></i>
                                                             )}
                                                         </td>
                                                         <td>
@@ -493,7 +493,7 @@ function Manage({ onProductUpdate }) {
                                                                             </>
                                                                         ) : (
                                                                             <>
-                                                                                {sub.name} {sub.icon && <i className={`bi ${sub.icon}`}></i>}
+                                                                                {sub.name} {sub.icon && <i className={`${sub.icon}`}></i>}
                                                                                 <div 
                                                                                 className='mb-2 '
                                                                                     // className='text-end'
