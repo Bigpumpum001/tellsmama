@@ -1,0 +1,32 @@
+*{
+    /* font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal; */
+}
+
+*{
+    /* font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal; */
+}
+*{
+     font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+:root {
+  --color-pink: #FFB5A7;
+  --color-peach: #FCD5CE;
+  --color-cream: #F8EDEB;
+  --color-sand: #F9DCC4;
+  --color-orange: #FEC89A;
+}
+
+/* body {
+background-color: #F32349;
+} */

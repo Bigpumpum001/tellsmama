@@ -1,0 +1,13 @@
+:root {
+  --color-pink: #FFB5A7;
+  --color-peach: #FCD5CE;
+  --color-cream: #F8EDEB;
+  --color-sand: #F9DCC4;
+  --color-orange: #FEC89A;
+}
+.--color-orange{
+    color: var(--color-orange);
+}
+.bg--color-peach{
+    background-color: var(--color-peach);
+}

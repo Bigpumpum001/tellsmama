@@ -1,0 +1,26 @@
+:root {
+  --color-pink: #FFB5A7;
+  --color-peach: #FCD5CE;
+  --color-cream: #F8EDEB;
+  --color-sand: #F9DCC4;
+  --color-orange: #FEC89A;
+}
+
+.onAddToCartBtn{
+    background-color: var(--color-pink);
+}
+.onAddToCartBtn:hover{
+    background-color: var(--color-peach);
+}
+.tag{
+    background-color: var(--color-orange);
+    color: black;
+    /* position: relative; */
+    /* top :0;
+    left: 0;
+    right: 0; */
+}
+.card-body{
+    --bs-card-spacer-y: 0.5rem;
+    padding-bottom: 0.7rem;
+}

@@ -1,0 +1,38 @@
+:root {
+  --color-pink: #FFB5A7;
+  --color-peach: #FCD5CE;
+  --color-cream: #F8EDEB;
+  --color-sand: #F9DCC4;
+  --color-orange: #FEC89A;
+  /* for active btn*/
+  /* --bs-btn-active-bg :var(--color-pink) */
+}
+.categories-scroll-wrapper::-webkit-scrollbar{
+    display: none;
+}
+
+
+
+.bg--color-peach{
+    background-color: var(--color-peach);
+}
+
+
+.bg--color-sand{
+    background-color: var(--color-sand) ;
+}
+.bg--color-pink,
+.bg--color-peach:hover,
+.bg--color-sand:hover
+/* .bg--color-peach:active,
+.bg--color-peach.active, */
+/* .bg--color-peach:focus-visible */
+{
+    background-color: var(--color-pink);
+}
+
+/* .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active
+,.btn:active
+{
+    background-color: var(--color-pink);
+} */
