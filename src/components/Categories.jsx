@@ -182,7 +182,7 @@ function Categories({
                                 pointerEvents: 'auto'
                             }}
                         >
-                            <i className={`bi ${cat.icon || 'bi-box'}`}></i> {cat.name}
+                            <i className={` ${cat.icon || 'bi-box'}`}></i> {cat.name}
                         </button>
 
 
