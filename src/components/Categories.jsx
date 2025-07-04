@@ -205,7 +205,7 @@ function Categories({
                                         className={`btn ${selectedSubCategory === sub.name ? styles['bg--color-pink'] : styles['bg--color-sand']} rounded-pill	`}
                                         onClick={() => setSelectedSubCategory(sub.name)}
                                     >
-                                        <i className={` bi ${sub.icon || 'bi-box'}`}></i> {sub.name}
+                                        <i className={` ${sub.icon || 'bi-box'}`}></i> {sub.name}
                                     </button>
                                 ))
                             }
