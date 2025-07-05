@@ -191,7 +191,7 @@ function AddProduct() {
                                         <label htmlFor="" className='mb-1 form-label d-flex' >subCategory:
                                             {formData.subIcon && (
                                                 <div className="ms-2">
-                                                    <i className={`bi ${formData.subIcon}`}></i>
+                                                    <i className={`${formData.subIcon}`}></i>
 
                                                 </div>
                                             )}
