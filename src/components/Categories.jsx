@@ -188,7 +188,7 @@ function Categories({
                                 pointerEvents: 'auto'
                             }}
                         >
-                            <i className={`bi ${cat.icon || 'bi-box'}`}></i> {cat.name}
+                            <i className={`${cat.icon || 'bi-box'}`}></i> {cat.name}
                         </button>
 
 
@@ -211,7 +211,7 @@ function Categories({
                                         className={`btn ${selectedSubCategory === sub.name ? styles['bg--color-pink'] : styles['bg--color-sand']} rounded-pill	`}
                                         onClick={() => setSelectedSubCategory(sub.name)}
                                     >
-                                        <i className={` bi ${sub.icon || 'bi-box'}`}></i> {sub.name}
+                                        <i className={`${sub.icon || 'bi-box'}`}></i> {sub.name}
                                     </button>
                                 ))
                             }

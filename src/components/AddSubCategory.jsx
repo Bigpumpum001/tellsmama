@@ -23,7 +23,7 @@ function AddSubCategory() {
                 // if (res.data.length > 0) {
                 //     setCategories(res.data[0]._id)
                 // }
-                console.log('Categories data:', res.data)
+                // console.log('Categories data:', res.data)
                 setLoading(false)
             })
             .catch((error) => {
