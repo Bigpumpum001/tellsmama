@@ -3,11 +3,11 @@ import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
 import api from '../services/api'
 import styles from '../styles/RegisterForm.module.css'
-import tellsmamaLogo from '../assets/tellsmama_crop_icon.png'; 
+import tellsmamaLogo from '../assets/tellsmama_crop_icon.png';
 
 
 function RegisterForm() {
-    const [formData, setFormData] = useState({ username: '', email: '', password: '' });
+    const [formData, setFormData] = useState({ username: '', email: '', password: '', confirmPassword: '' });
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
@@ -19,15 +19,24 @@ function RegisterForm() {
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
+        setError('')
+        if (formData.password !== formData.confirmPassword) {
+            setError('Passwords do not match')
+            return
+        }
         try {
-            await api.post('/api/auth/register', formData)
+            await api.post('/api/auth/register',{
+                    username: formData.username,
+                    email: formData.email,
+                    password: formData.password
+                })
             alert('User register successfully')
             navigate('/login')
         }
         catch (error) {
             console.error(error)
-            setError(error)
+            setError(error.response?.data?.error || 'Registration failed')
         }
     }
 
@@ -43,11 +52,11 @@ function RegisterForm() {
                         {/* <div className={`${styles['card-header']} card-header text-center`}>
                             <h3>Sign Up</h3>
                         </div> */}
-                                       <div className="d-flex justify-content-center pt-5">
-                                             <img src={tellsmamaLogo} alt="" className='card-img-top  ' 
-                                                    style={{width:'100px', height:'100px'}}
-                                                    />
-                                         </div>
+                        <div className="d-flex justify-content-center pt-5">
+                            <img src={tellsmamaLogo} alt="" className='card-img-top  '
+                                style={{ width: '100px', height: '100px' }}
+                            />
+                        </div>
                         <div className="card-body " >
                             {error && <div className='alert alert-danger'>{error}</div>}
                             <form onSubmit={handleSubmit} className='' >
@@ -57,7 +66,7 @@ function RegisterForm() {
 
                                     </div>
                                     <p className='d-flex justify-content-center'>Create your account to get started</p>
-                                
+
                                     <div className="form-group mb-3 ">
                                         <label className={`${styles['pt_serif']} fs-5 fw-bold `} htmlFor="username">Username <span className='text-danger'>*</span></label>
                                         <div className="input-group " >
@@ -92,12 +101,29 @@ function RegisterForm() {
                                         </div>
 
                                     </div>
+                                    <div className="form-group mb-3">
+                                        <label className={`${styles['pt_serif']} fs-5 fw-bold `} htmlFor="confirmPassword">Confirm Password <span className='text-danger'>*</span></label>
+                                        <div className="input-group">
+                                            <span className='input-group-text bg-white border-end-0 ps-3 pe-3'>
+                                                <i className="bi bi-lock-fill fs-5" style={{ color: '#FFB5A7' }}></i>
+                                            </span>
+                                            <input
+                                                type="password"
+                                                className='form-control border-start-0'
+                                                name='confirmPassword'
+                                                value={formData.confirmPassword}
+                                                onChange={handleChange}
+                                                placeholder='Confirm password'
+                                                required
+                                            />
+                                        </div>
+                                    </div>
                                     <button type='submit' className={`${styles['btn-pink']} btn  w-100 fw-bold fs-5 mt-2`}>
-                                    Register
-                                </button>
+                                        Register
+                                    </button>
                                 </div>
 
-                                
+
                                 <p className='d-flex justify-content-center mt-4'>Already have an account?
                                     <Link className='ms-1' to='/login'>
                                         Login here
