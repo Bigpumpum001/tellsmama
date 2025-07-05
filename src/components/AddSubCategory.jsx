@@ -187,7 +187,7 @@ function AddSubCategory() {
                                 />
                                 {subCategoryIcon && (
                                     <div className='mt-2'>
-                                        Preview Icon: <i className={`bi ${subCategoryIcon}`}></i>
+                                        Preview Icon: <i className={`${subCategoryIcon}`}></i>
                                     </div>
                                 )}
                                 <small className='mt-5' style={{ display: 'block', color: '#666' }}>
