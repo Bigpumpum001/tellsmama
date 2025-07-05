@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from '../styles/Cart.module.css'
 import '../styles/Cart.module.css'
-
-function Cart({ show, onClose, cartItems, onAddToCart, onDecreaseQuantity, onRemoveFromCart ,onCheckout}) {
+import Swal from 'sweetalert2'
+function Cart({ show, onClose, cartItems, onAddToCart, onDecreaseQuantity, onRemoveFromCart, onCheckout }) {
 
 
     if (!show) {
@@ -32,17 +32,17 @@ function Cart({ show, onClose, cartItems, onAddToCart, onDecreaseQuantity, onRem
                             onClick={onClose}
                         ></button>
                     </div>
-                    <div className={`${styles['modal-body']} modal-body p-4 overflow-auto flex-grow-1` }>
+                    <div className={`${styles['modal-body']} modal-body p-4 overflow-auto flex-grow-1`}>
                         {cartItems.length === 0 ? (
                             <p>Your cart is Empty. Start adding some products!</p>
                         ) : (
                             <ul className='list-group'>
                                 {cartItems.map((item) => (
                                     <li key={item.id}
-                                        className={` d-flex justify-content-between align-items-center ${1+1 ? ' ': 'list-group-item'}`}>
+                                        className={` d-flex justify-content-between align-items-center ${1 + 1 ? ' ' : 'list-group-item'}`}>
                                         <div className="flex-grow">
                                             <div className="">{item.name}</div>
-                                            <div className=""><img src={item.imageUrl} alt="" style={{ width: '150px', height: '150px' , objectFit: 'cover', borderTopLeftRadius: 'calc(.25rem - 1px)', borderTopRightRadius: 'calc(.25rem - 1px)'}} /></div>
+                                            <div className=""><img src={item.imageUrl} alt="" style={{ width: '150px', height: '150px', objectFit: 'cover', borderTopLeftRadius: 'calc(.25rem - 1px)', borderTopRightRadius: 'calc(.25rem - 1px)' }} /></div>
                                             {/* {item.name} x {item.quantity} */}
                                             <div className="d-flex align-items-center gap-2 mt-1">
                                                 <button
@@ -82,14 +82,24 @@ function Cart({ show, onClose, cartItems, onAddToCart, onDecreaseQuantity, onRem
                         <strong>฿ {totalPrice.toFixed(2)}</strong>
                         <button type='button' className='btn btn-danger' onClick={onClose}>Close</button>
                         <button type='button' className='btn btn-success'
-                        onClick={onCheckout}
+                            onClick={() => {
+                                const token = localStorage.getItem('token')
+                                if (!token) {
+                                    return Swal.fire({
+                                        icon: 'warning',
+                                        title: 'Please Login',
+                                        text: 'Please Login Before Checkout',
+                                    })
+                                }
+                                onCheckout()
+                            }}
                         disabled={cartItems.length === 0}
                         >
-                            Check Out</button>
-                    </div>
+                        Check Out</button>
                 </div>
             </div>
         </div>
+        </div >
     )
 }
 
