@@ -493,7 +493,7 @@ function Manage({ onProductUpdate }) {
                                                                             </>
                                                                         ) : (
                                                                             <>
-                                                                                {sub.name} {sub.icon && <i className={`${sub.icon}`}></i>}
+                                                                                {sub.name} {sub.icon && <i className={`${sub.icon} ms-2`}></i>}
                                                                                 <div 
                                                                                 className='mb-2 '
                                                                                     // className='text-end'
