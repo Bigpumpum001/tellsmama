@@ -61,7 +61,7 @@ function AddCategory() {
                             </div>
                             {formData.icon && (
                                 <div className="mb-2">
-                                    Preview Icon: <i className={`bi ${formData.icon}`}></i>
+                                    Preview Icon: <i className={`${formData.icon}`}></i>
                                 </div>
                             )}
                             <small className='mt-2' style={{ display: 'block', color: '#666' }}>
