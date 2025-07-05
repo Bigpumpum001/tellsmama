@@ -191,7 +191,8 @@ function AddSubCategory() {
                                     </div>
                                 )}
                                 <small className='mt-5' style={{ display: 'block', color: '#666' }}>
-                                    You can find icons from <a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap Icons</a>.
+                                    You can find icons from <a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap Icons.</a> ,
+                                    <a href="https://fontawesome.com/v4/icons/" target="_blank" rel="noopener noreferrer"> Fontawesome Icons.</a>
                                 </small>
                             </div>
 

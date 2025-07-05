@@ -3,6 +3,8 @@ import axios from 'axios'
 import api from '../services/api'
 import Categories from './Categories'
 import Swal from 'sweetalert2'
+import addProduct from '../assets/Addproduct.png'
+import styles from '../styles/RegisterForm.module.css'
 function AddProduct() {
     const [formData, setFormData] = useState({
         name: '',
@@ -142,9 +144,15 @@ function AddProduct() {
     return (
         <div className=''>
             <div className="container">
-                <div className="row pt-5 mt-5 pb-3  d-flex justify-content-center">
-                    <div className="col-10">
-                        <h2 className='fw-bold'>New Product</h2>
+                <div className="row pt-5 mt-5 pb-3  d-flex justify-content-center  " >
+                    <div className="col-11 col-md-8 card p-5 mt-3" style={{ borderRadius: '2rem' }}>
+
+                        <h2 className={`${styles['']} fw-bold d-flex justify-content-center mt-2`}>New Product</h2>
+                        <div className="d-flex justify-content-center ">
+                            <img src={addProduct} alt="" className='card-img-top  '
+                                style={{ width: '150px', height: '150px' }}
+                            />
+                        </div>
                         <form action="" className='mt-3' onSubmit={handleSubmit}
                         // encType='multipart/form-data'
                         >
@@ -172,7 +180,7 @@ function AddProduct() {
                                 <label htmlFor="" className='form-label mb-1 d-flex' >Category:
                                     {formData.icon && (
                                         <div className="ms-2">
-                                            <i className={`bi ${formData.icon}`}></i>
+                                            <i className={`${formData.icon}`}></i>
 
                                         </div>
                                     )} </label>
@@ -191,7 +199,7 @@ function AddProduct() {
                                         <label htmlFor="" className='mb-1 form-label d-flex' >subCategory:
                                             {formData.subIcon && (
                                                 <div className="ms-2">
-                                                    <i className={`bi ${formData.subIcon}`}></i>
+                                                    <i className={`${formData.subIcon}`}></i>
 
                                                 </div>
                                             )}
@@ -226,7 +234,7 @@ function AddProduct() {
 
                             </div>
 
-                            <button type='submit' className='btn btn-success'>Add Product</button>
+                            <button type='submit' className={`${styles['btn-pink']} btn  w-100`}>Add Product</button>
                         </form>
                     </div>
                 </div>

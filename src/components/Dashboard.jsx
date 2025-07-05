@@ -31,8 +31,8 @@ function Dashboard({ setAuth }) {
         })
             .then((response) => {
                 setData(response.data)
-                if (response.data.user && response.data.user.id){
-                    localStorage.setItem('userId',response.data.user.id)
+                if (response.data.user && response.data.user.id) {
+                    localStorage.setItem('userId', response.data.user.id)
                 }
 
                 console.log('Protected data:', response.data)
@@ -70,17 +70,21 @@ function Dashboard({ setAuth }) {
     return (
         <div className='container mt-5 pt-5'>
             <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header text-center">
+                <div className="col-12 col-md-8">
+                    <div className="card p-3" style={{ borderRadius: '2rem' }}>
+                        {/* <div className="card-header text-center">
                             <h3>Dashboard</h3>
-                        </div>
+                        </div> */}
                         <div className="card-body">
+                            <div className="text-center">
+                                <p className='fs-1 fw-bold'>Dashboard</p>
+                            </div>
+
                             {/* <p>Welcome to your dashboard! This is a protected route.</p> */}
                             <ul>
                                 {/* <li>Your ID: {data.user?.id}</li> */}
-                                <li className='fs-5'>Email: {data.user?.email}</li>
-                                <li className='fs-5'>Username: {data.user?.username}</li>
+                                <li className='fs-5 list-unstyled'><span className='fw-bold'>Email:</span>  {data.user?.email}</li>
+                                <li className='fs-5 list-unstyled'><span className='fw-bold'>Username:</span> {data.user?.username}</li>
 
                             </ul>
                             {data.user?.isAdmin && (
@@ -98,7 +102,7 @@ function Dashboard({ setAuth }) {
                 </div>
             </div>
 
-                <UserProduct />
+            <UserProduct />
 
 
         </div>

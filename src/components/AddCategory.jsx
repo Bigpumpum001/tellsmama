@@ -49,7 +49,7 @@ function AddCategory() {
                 // className="row pt-5 mt-5 pb-3  d-flex justify-content-center"
                 >
                     <div className="col-10">
-                        <h2 className='fw-bold'>Add Category</h2>
+                        <h2 className='fw-bold mt-3'>Add Category</h2>
                         <form className='mt-3' onSubmit={handleSubmit}>
                             <div className="mb-3">
                                 <label>Name:</label>
@@ -61,11 +61,12 @@ function AddCategory() {
                             </div>
                             {formData.icon && (
                                 <div className="mb-2">
-                                    Preview Icon: <i className={`bi ${formData.icon}`}></i>
+                                    Preview Icon: <i className={`${formData.icon}`}></i>
                                 </div>
                             )}
                             <small className='mt-2' style={{ display: 'block', color: '#666' }}>
-                                    You can find icons from <a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap Icons</a>.
+                                    You can find icons from <a href="https://icons.getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap Icons</a>. ,
+                                    <a href="https://fontawesome.com/v4/icons/" target="_blank" rel="noopener noreferrer"> Fontawesome Icons.</a>
                                 </small>
                             <button type='submit' className='btn btn-success mt-2'>Add Category</button>
                             {message && <p className='mt-3'>{message}</p>}

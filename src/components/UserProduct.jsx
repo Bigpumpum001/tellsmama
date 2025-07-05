@@ -182,7 +182,7 @@ function UserProduct() {
     return (
         <div>
             <div className="container mt-5">
-                <h2 className='fw-bold mb-4'>My Products</h2>
+                <h2 className='fw-bold mb-4'>My Products ({myProducts.length} items)</h2>
                 {myProducts.length === 0 ?
                     (
                         <p>You haven't added any products yes</p>
@@ -194,10 +194,10 @@ function UserProduct() {
                                         <img src={product.imageUrl} className='card-img-top' alt={product.name} style={{ height: '200px', objectFit: 'cover' }} />
                                         <div className="card-body">
                                             <h5 className="card-title">{product.name}</h5>
-                                            <p className="card-text">Price: ฿{product.price}</p>
+                                            <p className="card-text">Price : {product.price} ฿</p>
                                             <p className="card-text">Category: {product.category} {product.subCategory && `(${product.subCategory})`}</p>
                                             <div className="d-flex justify-content-between">
-                                                <button className="btn btn-primary btn-sm"
+                                                <button className="btn btn-warning btn-sm"
                                                     onClick={() => handleEdit(product)}
                                                 ><i className="bi bi-pencil-fill me-1"></i> Edit</button>
                                                 <button className="btn btn-danger btn-sm"
@@ -216,13 +216,13 @@ function UserProduct() {
                     <div className="modal-dialog modal-dialog-centered" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title">แก้ไขสินค้า: {currentProduct.name}</h5>
+                                <h5 className="modal-title">Edit Product : {currentProduct.name}</h5>
                                 <button type="button" className="btn-close" onClick={() => setShowEditModal(false)} aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
                                 <form onSubmit={handleUpdateSubmit}>
                                     <div className="mb-3">
-                                        <label htmlFor="editProductName" className="form-label">ชื่อสินค้า:</label>
+                                        <label htmlFor="editProductName" className="form-label">Product Name :</label>
                                         <input
                                             type="text"
                                             className="form-control"
@@ -234,7 +234,7 @@ function UserProduct() {
                                         />
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="editProductPrice" className="form-label">ราคา:</label>
+                                        <label htmlFor="editProductPrice" className="form-label">Price :</label>
                                         <input
                                             type="number"
                                             className="form-control"
@@ -286,16 +286,16 @@ function UserProduct() {
 
                                     {/* ส่วนรูปภาพเดิม - ไม่ให้แก้ไข */}
                                     <div className="mb-3">
-                                        <label className="form-label">รูปภาพปัจจุบัน:</label>
+                                        <label className="form-label">Current Image :</label>
                                         <div>
                                             <img src={currentProduct.imageUrl} alt="Current Product" style={{ maxWidth: '150px', height: 'auto', border: '1px solid #ddd' }} />
                                         </div>
-                                        <small className="form-text text-muted">ไม่สามารถแก้ไขรูปภาพได้ในหน้านี้</small>
+                                        <small className="form-text text-muted">Cannot edit image on this page.</small>
                                     </div>
 
                                     <div className="modal-footer d-flex justify-content-end">
-                                        <button type="button" className="btn btn-secondary" onClick={() => setShowEditModal(false)}>ยกเลิก</button>
-                                        <button type="submit" className="btn btn-primary">บันทึกการแก้ไข</button>
+                                        <button type="button" className="btn btn-secondary" onClick={() => setShowEditModal(false)}>Cancel</button>
+                                        <button type="submit" className="btn btn-primary">Save changes</button>
                                     </div>
                                 </form>
                             </div>

@@ -371,7 +371,7 @@ function Manage({ onProductUpdate }) {
                 <div className="col-md-10">
                     {activeTab === 'categories' && (
                         <>
-                            <h2 className="mb-3 fw-bold">Category Manage</h2>
+                            <h2 className="mb-3 fw-bold mt-3">Category Manage</h2>
                             {/* Category Search Section */}
                             <div className="mb-4 p-3 bg-light rounded shadow-sm">
                                 <h5 className="mb-3">Category Search</h5>
@@ -464,13 +464,13 @@ function Manage({ onProductUpdate }) {
                                                                     placeholder="เช่น bi-x-circle"
                                                                 />
                                                             ) : (
-                                                                category.icon && <i className={`bi ${category.icon}`}></i>
+                                                                category.icon && <i className={`${category.icon}`}></i>
                                                             )}
                                                         </td>
                                                         <td>
                                                             <ul className="list-unstyled mb-0">
                                                                 {category.subCategories && category.subCategories.map((sub) => (
-                                                                    <li key={sub._id} className='d-flex'>
+                                                                    <li key={sub._id} className='d-flex align-items-center'>
                                                                         {editingSubCategory === sub._id && parentCategoryId === category._id ? (
                                                                             <>
                                                                                 <input
@@ -493,7 +493,7 @@ function Manage({ onProductUpdate }) {
                                                                             </>
                                                                         ) : (
                                                                             <>
-                                                                                {sub.name} {sub.icon && <i className={`bi ${sub.icon}`}></i>}
+                                                                                {sub.name} {sub.icon && <i className={` ${sub.icon} ms-1`}></i>}
                                                                                 <div 
                                                                                 className='mb-2 '
                                                                                     // className='text-end'
@@ -532,7 +532,7 @@ function Manage({ onProductUpdate }) {
 
                     {activeTab === 'products' && (
                         <>
-                            <h2 className="mb-3 fw-bold">Products Manage</h2>
+                            <h2 className="mb-3 fw-bold mt-3">Products Manage</h2>
                             {/* Product Search & Sort Section */}
                             <div className="mb-4 p-3 bg-light rounded shadow-sm">
                                 <h5 className="mb-3">Search And Sort</h5>

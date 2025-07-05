@@ -1,0 +1,30 @@
+:root {
+  --color-pink: #FFB5A7;
+  --color-peach: #FCD5CE;
+  --color-cream: #F8EDEB;
+  --color-sand: #F9DCC4;
+  --color-orange: #FEC89A;
+}
+/* .card-header{
+    background-color: var(--color-peach);
+} */
+ /* .pt_serif{
+    font-family: "PT Serif", serif;
+  font-weight: 700;
+  font-style: normal;
+ } */
+.header-reg{
+     font-family: "PT Serif", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+ .btn-pink{
+    background-color: var(--color-pink);
+    /* font-family: "PT Serif", serif; */
+  font-weight: 700;
+  font-style: normal;
+  border-radius: 2rem;
+ }
+ .btn-pink:hover{
+    background-color: var(--color-sand);
+ }

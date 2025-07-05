@@ -45,10 +45,15 @@ function Navbar({
 
     return (
         <div>
-            <div className="navbar navbar-expand-lg navbar-light bg-light fixed-top mb-5"
+            <div 
+            // className="navbar navbar-expand-lg navbar-light bg-light fixed-top mb-5"
+             className="navbar navbar-expand-lg  fixed-top mb-5 bg-transparent"
             // style={{backgroundColor:'#F32349'}}
+            //   style={{ background: 'linear-gradient(135deg, #FFE8E1, #FFF0ED)' }}
+style={{ background: 'linear-gradient(135deg, #FFF5F3, #F8F9FA)'  }}
+              // style={{backgroundColor:'#F9DCC4'}}
             >
-                <div className="container-fluid">
+                <div className="container-fluid" >
                     <Link className='navbar-brand fs-3 fw-bold' to='/'>
                         {/* TellsMama */}
                         <img src={logo} alt="TellsMama Logo"
@@ -58,7 +63,6 @@ function Navbar({
                     <a className='nav-link fs-5 text-black me-2 fw-bold d-lg-none d-flex align-items-center' href='#' onClick={handleCartClick} style={{ position: 'absolute', right: '80px' }}>
                         <i className="bi bi-cart"></i>
                         {cartItemsCount > 0 && (
-                            // ตำแหน่งของตัวเลขสินค้าในตะกร้า (ใช้ Tailwind CSS classes: absolute, -top-1, -right-1)
                             <span className='badge bg-danger rounded-pill absolute -top-1 -right-1 text-xs'>
                                 {cartItemsCount}
                             </span>

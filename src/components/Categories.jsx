@@ -22,6 +22,8 @@ function Categories({
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
+    const [isMobile,setIsMobile] = useState(false)
+
     useEffect(() => {
         api.get('/api/category')
             .then((response) => {
@@ -34,6 +36,12 @@ function Categories({
                 console.error('Failed to fetch categories:', error)
             })
         setLoading(false)
+        const checkMobile = () =>{
+            setIsMobile(window.innerWidth <= 768 )
+        }
+        checkMobile()
+        window.addEventListener('resize',checkMobile)
+        return () =>  window.removeEventListener('resize', checkMobile)
     }, [])
 
     // const categories = [
@@ -144,7 +152,7 @@ function Categories({
                     onMouseUp={handleMouseUp}
                     onMouseMove={handleMouseMove}
                 >
-                    <button className={`btn ${!selectedCategory ? styles['bg--color-pink'] : styles['bg--color-peach']}  me-2  rounded-pill text-nowrap	`}
+                    <button className={`btn ${!selectedCategory ? styles['bg--color-pink'] : styles['bg--color-peach']}  me-2  rounded-pill text-nowrap	${isMobile  ? 'btn-sm' : ''}`}
                         onClick={() => {
                             setSelectedCategory(null)
                             setSelectedSubCategory(null)
@@ -160,8 +168,7 @@ function Categories({
                             cat._id
                         } className={`${selectedCategory === cat.name
                             ? styles['bg--color-pink']
-                            : styles['bg--color-peach']} 
-                             btn  btn  p-2 me-2  rounded text-wrap flex-shrink-0 rounded-pill	`}
+                            : styles['bg--color-peach']} btn p-2 me-2  rounded text-wrap flex-shrink-0 rounded-pill ${isMobile ? 'btn-sm' : ''}`}
                             onClick={() => {
 
                                 if (!isDragging) {
@@ -182,7 +189,10 @@ function Categories({
                                 pointerEvents: 'auto'
                             }}
                         >
-                            <i className={`bi ${cat.icon || 'bi-box'}`}></i> {cat.name}
+                            <i className={`${cat.icon 
+                            || 'bi-box'
+
+                            }`}></i> {cat.name}
                         </button>
 
 
@@ -205,7 +215,7 @@ function Categories({
                                         className={`btn ${selectedSubCategory === sub.name ? styles['bg--color-pink'] : styles['bg--color-sand']} rounded-pill	`}
                                         onClick={() => setSelectedSubCategory(sub.name)}
                                     >
-                                        <i className={` bi ${sub.icon || 'bi-box'}`}></i> {sub.name}
+                                        <i className={`${sub.icon || 'bi-box'}`}></i> {sub.name}
                                     </button>
                                 ))
                             }

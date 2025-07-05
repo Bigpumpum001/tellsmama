@@ -30,3 +30,8 @@
 /* body {
 background-color: #F32349;
 } */
+body{
+  background: linear-gradient(135deg, #FFF5F3, #F8F9FA);
+    /* background: linear-gradient(135deg, #FFE8E1, #FFF0ED); */
+
+}

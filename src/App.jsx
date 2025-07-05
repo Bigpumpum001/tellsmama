@@ -26,6 +26,8 @@ import PublicRoute from './components/PublicRoute';
 import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './components/Dashboard';
 function App() {
+  const [serverStatusMessage, setServerStatusMessage] = useState(null)
+
   const [isAuthenticated, setAuth] = useState(!!localStorage.getItem('token'))
 
   const [showCart, setshowCart] = useState(false)
@@ -43,13 +45,27 @@ function App() {
   const location = useLocation()
 
   const fetchProducts = useCallback(async () => {
+    setServerStatusMessage(null)
     try {
       const response = await api.get('/api/product')
       setAllProducts(response.data)
       console.log('Categories data:', response.data)
+      if (response.data.length === 0) {
+        // หากไม่มีข้อมูล ให้ตั้งเวลาแสดงข้อความแจ้งเตือน
+        // (เผื่อกรณีที่ API ยังโหลดไม่เสร็จ หรือไม่มีข้อมูลจริงๆ)
+        const timer = setTimeout(() => {
+          setServerStatusMessage(
+            '❗ No items found at this time. It seems the server might be sleeping due to inactivity. Please try reloading this page in a moment, or contact the administrator if the problem persists (Free Render servers will sleep after 15 minutes of inactivity and may take up to 10-30 seconds to wake up).'
+          )
+        }, 5000) // หน่วงเวลา 5 วินาที ก่อนแสดงข้อความ
+        return () => clearTimeout(timer); // Cleanup timer
+      }
     }
     catch (error) {
       console.error('Failed to fetch categories:', error)
+      setServerStatusMessage(
+        '❗ Cannot connect to the server at this time. It seems the server might be sleeping or experiencing issues. Please try reloading this page in a moment (Free Render servers will sleep after 15 minutes of inactivity and may take up to 10-30 seconds to wake up).'
+      )
     }
   }, [])
 
@@ -145,6 +161,11 @@ function App() {
   return (
     <>
       {/* <Router> */}
+      {serverStatusMessage && (
+        <div className="alert alert-warning text-center mt-3" role="alert">
+          {serverStatusMessage}
+        </div>
+      )}
       <Navbar
         isAuthenticated={isAuthenticated}
         setAuth={setAuth}
@@ -154,18 +175,18 @@ function App() {
         <Routes>
           <Route path='/' element={
 
-      
-              <Home
-                // allProducts={allProducts}
-                searchText={searchText} setSearchText={setSearchText}
-                filteredProducts={filteredProducts}
-                selectedCategory={selectedCategory}
-                setSelectedCategory={setSelectedCategory}
-                selectedSubCategory={selectedSubCategory}
-                setSelectedSubCategory={setSelectedSubCategory}
-                onAddToCart={onAddToCart}
-              />
-        
+
+            <Home
+              // allProducts={allProducts}
+              searchText={searchText} setSearchText={setSearchText}
+              filteredProducts={filteredProducts}
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+              selectedSubCategory={selectedSubCategory}
+              setSelectedSubCategory={setSelectedSubCategory}
+              onAddToCart={onAddToCart}
+            />
+
           }
 
 
