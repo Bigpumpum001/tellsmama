@@ -117,8 +117,8 @@ function UserProduct() {
             console.error('currentProduct is null/undefined during update submit.');
             return
         }
-        console.log('editFormData on submit:', editFormData); // <--- เพิ่มบรรทัดนี้
-        console.log('currentProduct on submit:', currentProduct); // <--- เพิ่มบรรทัดนี้
+        // console.log('editFormData on submit:', editFormData); 
+        // console.log('currentProduct on submit:', currentProduct); 
         try {
             const productData = {
                 name: editFormData.name,
@@ -284,7 +284,7 @@ function UserProduct() {
                                         </div>
                                     )}
 
-                                    {/* ส่วนรูปภาพเดิม - ไม่ให้แก้ไข */}
+                                
                                     <div className="mb-3">
                                         <label className="form-label">Current Image :</label>
                                         <div>

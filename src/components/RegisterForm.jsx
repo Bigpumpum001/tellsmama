@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
 import api from '../services/api'
 import styles from '../styles/RegisterForm.module.css'
-import tellsmamaLogo from '../assets/tellsmama_crop_icon.png'; // ตรวจสอบ path นี้ให้ถูกต้อง!
+import tellsmamaLogo from '../assets/tellsmama_crop_icon.png'; 
 
 
 function RegisterForm() {

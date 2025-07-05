@@ -17,17 +17,11 @@ function Navbar({
         setAuth(false)
         navigate('/')
     }
-    // // สร้าง state สำหรับแสดง modal
-    // const [showCartModal, setShowCartModal] = useState(false);
 
-    // ฟังก์ชัน toggle แสดง/ซ่อน cart
-    // const handleToggleCart = () => {
-    //     setshowCart(prev => !prev);
-    // };
     const handleCartClick = (e) => {
         e.preventDefault();
 
-        //    setshowCart(true)
+
 
         // setshowCart(true);
         setshowCart(prev => !prev);
@@ -36,11 +30,7 @@ function Navbar({
         // onShowCart();
     };
 
-    // // ฟังก์ชันปิด modal
-    // const handleCloseModal = () => setShowCartModal(false);
 
-    // import CartModal จาก Cart.jsx (สมมติว่าคุณ export modal component จาก Cart.jsx)
-    // ตัวอย่าง: import CartModal from './Cart';
 
 
     return (
@@ -55,7 +45,7 @@ style={{ background: 'linear-gradient(135deg, #FFF5F3, #F8F9FA)'  }}
             >
                 <div className="container-fluid" >
                     <Link className='navbar-brand fs-3 fw-bold' to='/'>
-                        {/* TellsMama */}
+                
                         <img src={logo} alt="TellsMama Logo"
                             style={{ height: '50px' }}
                         />
@@ -103,12 +93,7 @@ style={{ background: 'linear-gradient(135deg, #FFF5F3, #F8F9FA)'  }}
                                 </>
                             ) : (
                                 <>
-                                    {/* <li className='nav-item'>
-                                        <Link className={`${styles['']} text-black nav-link fs-5 me-2 d-flex justify-content-start fw-bold`} to='/addcategory' >Add Category</Link>
-                                    </li> */}
-                                    {/* <li className='nav-item'>
-                                        <Link className={`${styles['']} text-black nav-link fs-5 me-2 d-flex justify-content-start fw-bold`} to='/manage' >Manage</Link>
-                                    </li> */}
+                         
                                     <li className='nav-item'>
                                         <Link className={`${styles['']} text-black nav-link fs-5 me-2 d-flex justify-content-start fw-bold`} to='/dashboard' >Dashboard</Link>
                                     </li>
@@ -119,20 +104,12 @@ style={{ background: 'linear-gradient(135deg, #FFF5F3, #F8F9FA)'  }}
 
                             )}
 
-                            {/* <li className='nav-item d-flex justify-content-center align-items-center'>
-                                <button className='btn btn-danger d-flex justify-content-end fw-bold' 
-                                // onClick=''
-                                >Log out</button>
-                            </li> */}
                         </ul>
                     </div>
                 </div>
             </div>
 
-            {/* {showCartModal && (
-                // สมมติว่าคุณมี CartModal component ที่รับ prop onClose
-                <Cart onClose={handleCloseModal} />
-            )} */}
+
         </div>
     )
 }

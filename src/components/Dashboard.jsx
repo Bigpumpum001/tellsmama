@@ -35,7 +35,7 @@ function Dashboard({ setAuth }) {
                     localStorage.setItem('userId', response.data.user.id)
                 }
 
-                console.log('Protected data:', response.data)
+                // console.log('Protected data:', response.data)
             })
             .catch(error => {
                 console.log('Error: ', error.response?.data || error.message)
@@ -78,11 +78,8 @@ function Dashboard({ setAuth }) {
                         <div className="card-body">
                             <div className="text-center">
                                 <p className='fs-1 fw-bold'>Dashboard</p>
-                            </div>
-
-                            {/* <p>Welcome to your dashboard! This is a protected route.</p> */}
+                            </div>                  
                             <ul>
-                                {/* <li>Your ID: {data.user?.id}</li> */}
                                 <li className='fs-5 list-unstyled'><span className='fw-bold'>Email:</span>  {data.user?.email}</li>
                                 <li className='fs-5 list-unstyled'><span className='fw-bold'>Username:</span> {data.user?.username}</li>
 

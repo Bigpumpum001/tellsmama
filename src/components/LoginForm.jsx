@@ -21,11 +21,10 @@ function LoginForm({ setAuth }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-
             const res = await api.post("/api/auth/login", formData)
             localStorage.setItem('token', res.data.token)
             setAuth(true);
-            setFormData({ username: '', password: '' }) 
+            setFormData({ username: '', password: '' })
 
             navigate('/dashboard')
         }
@@ -48,28 +47,21 @@ function LoginForm({ setAuth }) {
                         {/* <div className="card-header text-center">
                             <h3>Login Form</h3>
                         </div> */}
-                        
-                 <div className="d-flex justify-content-center pt-5">
-                     <img src={tellsmamaLogo} alt="" className='card-img-top  ' 
-                            style={{width:'100px', height:'100px'}}
+
+                        <div className="d-flex justify-content-center pt-5">
+                            <img src={tellsmamaLogo} alt="" className='card-img-top  '
+                                style={{ width: '100px', height: '100px' }}
                             />
-                 </div>
-                           
-
-
-                        
-
+                        </div>
                         <div className="card-body">
                             {error && <div className='alert alert-danger'>{error}</div>}
                             <form onSubmit={handleSubmit} className='ps-3 pe-3'>
                                 <div className={` mb-3  `}>
                                     <p className={`${styles['header-reg']} fs-1 d-flex justify-content-center `}>Sign In</p>
                                     <p className='d-flex justify-content-center'>Welcome back! Please login to your account</p>
-
                                 </div>
                                 <div className="form-group mb-3">
                                     <label htmlFor="username" className={`${styles['pt_serif']} fs-5 fw-bold `}>Username <span className='text-danger'>*</span></label>
-
                                     <div className="input-group " >
                                         <span className='input-group-text bg-white border-end-0 ps-3 pe-3'>
                                             <i className="bi bi-person-circle fs-4" style={{ color: '#FFB5A7' }}></i>
@@ -91,7 +83,6 @@ function LoginForm({ setAuth }) {
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }

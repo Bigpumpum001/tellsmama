@@ -99,35 +99,6 @@ function Product({
                         </div>
                     ))}
                 </div>
-
-                // <div className="row g-4 mt-2"
-                //     style={{
-                //         // display: "grid",
-                //         // gridTemplateColumns: "repeat(auto-fill,minmax(200px,1fr))",
-                //         // gap: "20px",
-                //         // padding: "20px"
-                //     }}>
-                //     {products.map((products) => (
-                //         // <ProductCard key={products.id} products={products} onAddToCart={onAddToCart} />
-                //         <div key={products.id} className="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3" style={{  }}>
-                //             <div className="card  shadow-sm h-100">
-                //                 <img src={products.imageUrl} alt={products.name} className='card-img-top img-fluid'
-                //                     style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '4px', marginBottom: '10px' }}
-                //                 />
-                //                 <div className="card-body ">
-                //                     <p className='card-title fw-bold fs-4'>{products.name}</p>
-                //                     <p className='card-text fs-5 '>Price : {products.price} ฿</p>
-                //                     <div className="d-flex gap-1 justify-content-center ps-1 pe-1 " style={{}}>
-                //                         {/* <button className='btn  btn-primary  text-nowrap d-flex justify-content-center fw-bold'>View Details</button> */}
-                //                         <button className={`${styles["onAddToCartBtn"]} btn w-100  text-nowrap fw-bold `}
-                //                             // style={{backgroundColor:'var(--color-pink)'}}
-                //                             onClick={() => onAddToCart(products)} >Add to cart</button>
-                //                     </div>
-                //                 </div>
-                //             </div>
-                //         </div>
-                //     ))}
-                // </div>
             )
             }
         </div>

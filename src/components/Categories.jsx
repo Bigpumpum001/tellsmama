@@ -28,8 +28,7 @@ function Categories({
         api.get('/api/category')
             .then((response) => {
                 setCategories(response.data)
-                console.log('Categories data:', response.data)
-
+                // console.log('Categories data:', response.data)
             })
             .catch(error => {
                 setError(error)
