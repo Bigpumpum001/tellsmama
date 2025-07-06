@@ -58,6 +58,7 @@ function Product({
                 <div className="text-center text-muted fs-5 mt-4">
                     🛒
                     No products found. Try a different keyword or choose another category.
+                    <p><br/> {'❗ No items found at this time. It seems the server might be sleeping due to inactivity. Please try reloading this page in a moment, or contact the administrator if the problem persists (Free Render servers will sleep after 15 minutes of inactivity and may take up to 10-30 seconds to wake up).'}</p>
                 </div>
             ) : (
 
