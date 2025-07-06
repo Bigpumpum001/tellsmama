@@ -49,7 +49,7 @@ function App() {
     try {
       const response = await api.get('/api/product')
       setAllProducts(response.data)
-      console.log('Categories data:', response.data)
+      // console.log('Categories data:', response.data)
       if (response.data.length === 0) {
         // หากไม่มีข้อมูล ให้ตั้งเวลาแสดงข้อความแจ้งเตือน
         // (เผื่อกรณีที่ API ยังโหลดไม่เสร็จ หรือไม่มีข้อมูลจริงๆ)
@@ -162,7 +162,7 @@ function App() {
     <>
       {/* <Router> */}
       {serverStatusMessage && (
-        <div className="alert alert-warning text-center mt-3" role="alert">
+        <div className="alert alert-warning text-center mt-5 pt-5" role="alert">
           {serverStatusMessage}
         </div>
       )}
